@@ -2,7 +2,6 @@ const app = document.querySelector("#app");
 
 function getMovieList() {
 	//todo json을 아예 가져올때 필터링으로 title, genre, summary, image만 갖고오기
-	// api fetch 더 공부
     fetch("https://yts.lt/api/v2/list_movies.json?sort_by=download_count"
     ).then(function (response) {
         return response.json();
@@ -10,28 +9,40 @@ function getMovieList() {
 		const movies = json.data.movies
 		componentMake(movies);
 	})
-}
+};
 
 function componentMake(arr) {
 	console.log(arr)
 	for (let i = 0; i < arr.length; i++) {
+		
+		// element 만들기
 		const movieDiv = document.createElement("div"); 
-		app.appendChild(movieDiv);
-
 		const img = document.createElement("img"); 
-		const title = document.createElement("p")
-		const summary = document.createElement("p")
+		const title = document.createElement("div");
+		const summary = document.createElement("div");
+		const genreDiv = document.createElement("div"); 
 
-		const movieGenre = document.createElement("span");
-
+		// element 자식으로 넣기
+		app.appendChild(movieDiv);
 		movieDiv.appendChild(img);
 		movieDiv.appendChild(title);
+		movieDiv.appendChild(genreDiv);
 		movieDiv.appendChild(summary);
 
-		img.src = arr[i].medium_cover_image
-		title.innerText = arr[i].title
-		summary.innerText = arr[i].summary
-	}
+		// 포스터, 제목, 요약 가져와서 img, div에 넣기
+		img.src = arr[i].medium_cover_image;
+		title.innerText = arr[i].title;
+		summary.innerText = arr[i].summary;
+
+		// 장르 배열 가져와서 span에 넣기
+		const genres = arr[i].genres;
+		
+		for (let n = 0; n < genres.length; n++) {
+			const movieGenre = document.createElement("span");
+			genreDiv.appendChild(movieGenre);
+			movieGenre.innerText = genres[n]
+		};
+	};
 }
 
 function init() {
