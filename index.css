@@ -1,8 +1,64 @@
-.body {
+body {
     background-color: #EFF3F7;
 }
 
+#app {
+    display: flex;
+    padding: 50px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
-.moviesection {
-    
+.movieDiv {
+    background-color: white;
+    width:40%;
+    margin-bottom: 50px;
+    padding: 0 20px;
+    box-shadow: 0 8px 38px hsla(0,0%,52.2%,.3), 0 5px 12px hsla(0,0%,52.2%,.22);
+    display: flex;
+    align-content: flex-start;
+}
+
+
+.imgDiv {
+    width: 30%;
+}
+
+.imgDiv > img {
+    max-width: 100%;
+    position: relative;
+    top: -5%;
+    box-shadow: -10px 19px 38px rgba(83,83,83,.3), 10px 15px 12px rgba(80,80,80,.22);
+}
+
+.contentDiv{
+    display: inline-block;
+    overflow: hidden;
+    width:60%;
+    margin: 20px 0px;
+    position: relative;
+    left: 10%;
+}
+
+.contentDiv > div:nth-child(1) {
+    padding: 20px 0px 0px 0px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contentDiv > div:nth-child(2) {
+    padding: 20px 0px 0px 0px;
+}
+
+.contentDiv > div:nth-child(2) span {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.contentDiv > div:nth-child(3) {
+    display: block;
+    padding: 20px 0px 0px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

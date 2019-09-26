@@ -17,6 +17,9 @@ function componentMake(arr) {
 		
 		// element 만들기
 		const movieDiv = document.createElement("div"); 
+		const imgDiv = document.createElement("div");
+		const contentDiv = document.createElement("div")
+
 		const img = document.createElement("img"); 
 		const title = document.createElement("div");
 		const summary = document.createElement("div");
@@ -24,10 +27,13 @@ function componentMake(arr) {
 
 		// element 자식으로 넣기
 		app.appendChild(movieDiv);
-		movieDiv.appendChild(img);
-		movieDiv.appendChild(title);
-		movieDiv.appendChild(genreDiv);
-		movieDiv.appendChild(summary);
+		movieDiv.appendChild(imgDiv);
+		movieDiv.appendChild(contentDiv);
+
+		imgDiv.appendChild(img);
+		contentDiv.appendChild(title);
+		contentDiv.appendChild(genreDiv);
+		contentDiv.appendChild(summary);
 
 		// 포스터, 제목, 요약 가져와서 img, div에 넣기
 		img.src = arr[i].medium_cover_image;
@@ -42,6 +48,13 @@ function componentMake(arr) {
 			genreDiv.appendChild(movieGenre);
 			movieGenre.innerText = genres[n]
 		};
+
+		// css클래스 추가
+		movieDiv.classList.add("movieDiv");
+		contentDiv.classList.add("contentDiv");
+		imgDiv.classList.add("imgDiv")
+		summary.classList.add("summary")
+		title.classList.add("title")
 	};
 }
 
