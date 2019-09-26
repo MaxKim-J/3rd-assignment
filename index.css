@@ -19,7 +19,6 @@ body {
     align-content: flex-start;
 }
 
-
 .imgDiv {
     width: 30%;
 }
@@ -32,6 +31,7 @@ body {
 }
 
 .contentDiv{
+    font-family: 'Roboto', sans-serif;
     display: inline-block;
     overflow: hidden;
     width:60%;
