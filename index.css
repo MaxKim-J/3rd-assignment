@@ -9,6 +9,10 @@ body {
     flex-wrap: wrap;
 }
 
+.loading {
+    display: block;
+}
+
 .movieDiv {
     background-color: white;
     width:40%;
