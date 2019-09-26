@@ -36,7 +36,7 @@ function componentMake(arr) {
 		contentDiv.appendChild(summary);
 
 		// 포스터, 제목, 요약 가져와서 img, div에 넣기
-		img.src = arr[i].medium_cover_image;
+		img.src = arr[i].large_cover_image;
 		title.innerText = arr[i].title;
 		summary.innerText = arr[i].summary;
 
@@ -53,8 +53,6 @@ function componentMake(arr) {
 		movieDiv.classList.add("movieDiv");
 		contentDiv.classList.add("contentDiv");
 		imgDiv.classList.add("imgDiv")
-		summary.classList.add("summary")
-		title.classList.add("title")
 	};
 }
 

@@ -66,3 +66,30 @@ body {
     text-overflow: ellipsis;
     font-size: 14px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 667px) {
+    .movieDiv {
+      width: 100%;
+    }
+}
+  
+@media screen and (min-width: 320px) and (max-width: 667px) and (orientation: portrait) {
+    .movieDiv {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .imgDiv{
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .imgDiv > img {
+        top: -3%;
+        left: 0;
+    }
+    .contentDiv {
+        width: 100% !important;
+        left: 0%;
+    }
+}
