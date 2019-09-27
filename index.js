@@ -50,6 +50,7 @@ function modalPopUp(movies) {
   buttons.forEach(function(button) {
     button.addEventListener("click", function(e) {
       modal.style.display = "block";
+      app.style.display = "none";
       const indexNum = e.currentTarget.value;
 
       col1.appendChild(modalImg);
@@ -75,6 +76,7 @@ function modalPopUp(movies) {
   //cancel 버튼 눌렀을 때 모달 삭제
   modalCancelBtn.addEventListener("click", function () {
       modal.style.display = "none";
+      app.style.display = "flex";
       col1.removeChild(modalImg);
       col2.removeChild(modalTitle);
       col2.removeChild(modalSummary);
