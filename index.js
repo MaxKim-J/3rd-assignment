@@ -21,7 +21,8 @@ function getMovieList() {
         "genres",
         "rating",
         "runtime",
-        "title_long"
+        "title_long",
+        "url"
       ]);
       const movies = JSON.parse(jsonString);
       componentMake(movies);
@@ -38,6 +39,7 @@ function modalPopUp(movies) {
   const modalTitle = document.createElement("div");
   const modalSummary = document.createElement("div");
   const modalCancelBtn = document.createElement("button");
+  const modalDownloadBtn = document.createElement("button");
   const modalRuntime = document.createElement("div");
   const modalRating = document.createElement("div");
   const modalGenre = document.createElement("div");
@@ -53,6 +55,7 @@ function modalPopUp(movies) {
       col2.appendChild(modalRating);
       col2.appendChild(modalGenre);
       col2.appendChild(modalSummary);
+      col1.appendChild(modalDownloadBtn);
       col1.appendChild(modalCancelBtn);
 
       modalImg.src = movies[indexNum].large_cover_image;
@@ -60,7 +63,8 @@ function modalPopUp(movies) {
       modalSummary.innerHTML = `<p class="modal__head">summary</p>\n<hr/>${movies[indexNum].summary}`;
       modalRating.innerHTML = `<p class="modal__head">rating</p>\n<hr/>${movies[indexNum].rating}/10`;
       modalRuntime.innerHTML = `<p class="modal__head">runtime</p>\n<hr/>${movies[indexNum].runtime}m`;
-      modalCancelBtn.innerHTML = "Cancel"
+      modalCancelBtn.innerHTML = "Back to Movie list"
+      modalDownloadBtn.innerHTML = `<a href="${movies[indexNum].url}" target="_blank">Download Link</a>`
     });
   });
 

@@ -126,11 +126,19 @@ hr {
 }
 
 .modal__column1{
-    width: 30%
+    width: 30%;
+    display: block;
 }
 
 .modal__column1 > img {
     max-width: 100%;
+}
+
+.modal__column1 button {
+    width: 100%;
+    padding: 10px 0px;
+    margin-top:10px;
+    border:none;
 }
 
 .modal__column2{
