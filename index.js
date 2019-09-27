@@ -1,11 +1,13 @@
 const app = document.querySelector("#app");
 const loading = document.querySelector(".loading");
 //todo 모달 이용하여 상세 페이지 만들기(토요일)
+//todo githubpages 배포
 
 function getMovieList() {
+  // axios와 JSON 메소드로 꼭 필요한 데이터만 파싱
   axios.get('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
     .then(function (response) {
-      let jsonString = JSON.stringify(response.data.data.movies,
+      const jsonString = JSON.stringify(response.data.data.movies,
         ["title", "large_cover_image", "summary", "genres"]);
       const movies = JSON.parse(jsonString);
       componentMake(movies);
@@ -15,9 +17,9 @@ function getMovieList() {
     })
 }
 
-function componentMake(arr) {
-  console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
+function componentMake(movies) {
+  console.log(movies);
+  for (let movieIndex = 0; movieIndex < movies.length; movieIndex++) {
 
     // element 만들기
     const movieDiv = document.createElement("div");
@@ -40,17 +42,17 @@ function componentMake(arr) {
     contentDiv.appendChild(summary);
 
     // 포스터, 제목, 요약 가져와서 img, div에 넣기
-    img.src = arr[i].large_cover_image;
-    title.innerText = arr[i].title;
-    summary.innerText = arr[i].summary;
+    img.src = movies[movieIndex].large_cover_image;
+    title.innerText = movies[movieIndex].title;
+    summary.innerText = movies[movieIndex].summary;
 
     // 장르 배열 가져와서 span에 넣기
-    const genres = arr[i].genres;
+    const genres = movies[movieIndex].genres;
 
-    for (let n = 0; n < genres.length; n++) {
+    for (let genreIndex = 0; genreIndex < genres.length; genreIndex++) {
       const movieGenre = document.createElement("span");
       genreDiv.appendChild(movieGenre);
-      movieGenre.innerText = genres[n];
+      movieGenre.innerText = genres[genreIndex];
     }
 
     // css클래스 추가
@@ -65,6 +67,7 @@ function componentMake(arr) {
 
 function init() {
   getMovieList();
+  //로딩 메시지 만들기
   window.onload = function() {
     loading.innerText = "Loading...";
     loading.style.display = "block"
