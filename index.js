@@ -3,7 +3,9 @@ const loading = document.querySelector(".loading");
 
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal__content");
-//todo 모달 이용하여 상세 페이지 만들기(토요일)
+const col1 = document.querySelector(".modal__column1");
+const col2 = document.querySelector(".modal__column2");
+
 //todo githubpages 배포
 
 function getMovieList() {
@@ -16,7 +18,10 @@ function getMovieList() {
         "title",
         "large_cover_image",
         "summary",
-        "genres"
+        "genres",
+        "rating",
+        "runtime",
+        "title_long"
       ]);
       const movies = JSON.parse(jsonString);
       componentMake(movies);
@@ -28,13 +33,14 @@ function getMovieList() {
 }
 
 function modalPopUp(movies) {
-  const col1 = document.querySelector(".modal__column1");
-  const col2 = document.querySelector(".modal__column2");
-  const modalCancelBtn = document.querySelector(".cancelBtn");
   const buttons = document.querySelectorAll(".modalbtn");
   const modalImg = document.createElement("img");
   const modalTitle = document.createElement("div");
   const modalSummary = document.createElement("div");
+  const modalCancelBtn = document.createElement("button");
+  const modalRuntime = document.createElement("div");
+  const modalRating = document.createElement("div");
+  const modalGenre = document.createElement("div");
 
   buttons.forEach(function(button) {
     button.addEventListener("click", function(e) {
@@ -43,11 +49,18 @@ function modalPopUp(movies) {
 
       col1.appendChild(modalImg);
       col2.appendChild(modalTitle);
+      col2.appendChild(modalRuntime);
+      col2.appendChild(modalRating);
+      col2.appendChild(modalGenre);
       col2.appendChild(modalSummary);
+      col1.appendChild(modalCancelBtn);
 
       modalImg.src = movies[indexNum].large_cover_image;
-      modalTitle.innerText = movies[indexNum].title;
-      modalSummary.innerText = movies[indexNum].summary;
+      modalTitle.innerHTML = `<p class="modal__mainhead">${movies[indexNum].title_long}</h2>`;
+      modalSummary.innerHTML = `<p class="modal__head">summary</p>\n<hr/>${movies[indexNum].summary}`;
+      modalRating.innerHTML = `<p class="modal__head">rating</p>\n<hr/>${movies[indexNum].rating}/10`;
+      modalRuntime.innerHTML = `<p class="modal__head">runtime</p>\n<hr/>${movies[indexNum].runtime}m`;
+      modalCancelBtn.innerHTML = "Cancel"
     });
   });
 

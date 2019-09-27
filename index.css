@@ -2,6 +2,18 @@ body {
     background-color: #EFF3F7;
 }
 
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    height: 2px;
+    background-color: #c9c9c9;
+    border: none;
+}
+
 #app {
     display: flex;
     padding: 50px;
@@ -101,13 +113,16 @@ body {
 
 .modal__content {
     background-color: white;
-    padding: 50px 100px;
-    text-align: center;
+    padding: 50px 50px;
+    text-align: left;
     position: relative;
     margin: 10px auto;
     border-radius: 10px;
     width: 40%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: flex;
+    align-content: flex-start;
+    font-family: 'Roboto', sans-serif;
 }
 
 .modal__column1{
@@ -119,8 +134,32 @@ body {
 }
 
 .modal__column2{
-    width: 70%
+    width: 70%;
+    margin-left:30px;
 }
+
+.modal__column2 > div {
+    margin-bottom: 30px;
+}
+
+.modal__column2 > div:nth-child(5) {
+    height: 200px;
+    margin-bottom: 30px;
+    overflow: auto;
+    text-overflow: ellipsis;
+}
+
+
+.modal__mainhead{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.modal__head{
+    font-weight: 600;
+    font-size: 20px;
+}
+
 
 @media screen and (min-width: 320px) and (max-width: 667px) {
     .movieDiv {
