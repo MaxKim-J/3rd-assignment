@@ -75,7 +75,7 @@ function modalPopUp(movies) {
   //cancel 버튼 눌렀을 때 모달 삭제
   modalCancelBtn.addEventListener("click", function () {
       modal.style.display = "none";
-      app.style.display = "";
+      app.style.display = "flex";
       col1.removeChild(modalImg);
       col2.removeChild(modalTitle);
       col2.removeChild(modalSummary);
