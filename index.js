@@ -56,7 +56,7 @@ function modalPopUp(movies) {
       col2.appendChild(modalRating);
       col2.appendChild(modalSummary);
       col1.appendChild(modalDownloadBtn);
-      col1.appendChild(modalCancelBtn);
+      col2.appendChild(modalCancelBtn);
 
       modalImg.src = movies[indexNum].large_cover_image;
       modalTitle.innerHTML = `<p class="modal__mainhead">${movies[indexNum].title_long}</h2>`;
@@ -75,7 +75,6 @@ function modalPopUp(movies) {
       col2.removeChild(modalTitle);
       col2.removeChild(modalSummary);
       col2.removeChild(modalRuntime);
-      col2.revmoveChild(modalRating);
   });
 }
 

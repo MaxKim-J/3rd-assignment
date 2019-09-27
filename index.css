@@ -150,13 +150,19 @@ hr {
     margin-bottom: 30px;
 }
 
-.modal__column2 > div:nth-child(5) {
+.modal__column2 > div:nth-child(4) {
     height: 200px;
     margin-bottom: 30px;
     overflow: auto;
     text-overflow: ellipsis;
 }
 
+.modal__column2 button {
+    width: 100%;
+    padding: 10px 0px;
+    margin-top:10px;
+    border:none;
+}
 
 .modal__mainhead{
     font-size: 30px;
@@ -193,5 +199,31 @@ hr {
     .contentDiv {
         width: 100% !important;
         left: 0%;
+    }
+    .modal {
+        overflow: scroll;
+    }
+    .modal__content{
+        width: 100%;
+        flex-direction: column;
+        margin: 0;
+        padding:0;
+    }
+    .modal__column1 {
+        width:70%;
+        margin:0 auto;
+    }
+    .modal__column1 img {
+        display: block;
+    }
+    .modal__column1 button {
+        display: block;
+    }
+    .modal__column2 {
+        margin:0 auto;
+    }
+
+    .modal__column2 > div:nth-child(1) {
+        margin-top: 20px;
     }
 }
