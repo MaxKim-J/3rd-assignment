@@ -1,5 +1,8 @@
 const app = document.querySelector("#app");
 const loading = document.querySelector(".loading");
+const modal = document.querySelector(".modal")
+const modalContent = document.querySelector(".modal__content")
+const modalCancelBtn = document.querySelector(".modal__content > button")
 //todo 모달 이용하여 상세 페이지 만들기(토요일)
 //todo githubpages 배포
 
@@ -17,6 +20,13 @@ function getMovieList() {
     })
 }
 
+function handleDetailBtn() { 
+  modal.style.display = "block"
+  const btnVal = document.querySelector(".modal")
+  
+  console.log(modalIndex);
+}
+
 function componentMake(movies) {
   console.log(movies);
   for (let movieIndex = 0; movieIndex < movies.length; movieIndex++) {
@@ -32,13 +42,13 @@ function componentMake(movies) {
     const genreDiv = document.createElement("div");
     const btnDiv = document.createElement("div");
     const detailBtn = document.createElement("button");
-
+  
     // element 자식으로 넣기
     app.appendChild(movieDiv);
     movieDiv.appendChild(imgDiv);
     movieDiv.appendChild(contentDiv);
     imgDiv.appendChild(img);
-    
+
     contentDiv.appendChild(title);
     contentDiv.appendChild(genreDiv);
     contentDiv.appendChild(summary);
@@ -62,6 +72,7 @@ function componentMake(movies) {
 
     // button에 텍스트 넣기
     detailBtn.innerText = "Show Detail"
+    detailBtn.id = `${movieIndex}`
     detailBtn.classList.add("modalbtn")
 
     // css클래스 추가
@@ -71,6 +82,12 @@ function componentMake(movies) {
 
     // 로딩 메시지 없애기
     loading.style.display = "none"
+
+    // 디테일 버튼 이벤트 리스너
+    detailBtn.addEventListener("click", handleDetailBtn);
+    modalCancelBtn.addEventListener("click", function () {
+    modal.style.display = "none"
+    });
   }
 }
 
