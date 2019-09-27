@@ -33,6 +33,7 @@ function getMovieList() {
     });
 }
 
+// 모달 함수
 function modalPopUp(movies) {
   const buttons = document.querySelectorAll(".modalbtn");
   const modalImg = document.createElement("img");
@@ -42,8 +43,8 @@ function modalPopUp(movies) {
   const modalDownloadBtn = document.createElement("button");
   const modalRuntime = document.createElement("div");
   const modalRating = document.createElement("div");
-  const modalGenre = document.createElement("div");
 
+  // show detail 버튼이벤트
   buttons.forEach(function(button) {
     button.addEventListener("click", function(e) {
       modal.style.display = "block";
@@ -53,7 +54,6 @@ function modalPopUp(movies) {
       col2.appendChild(modalTitle);
       col2.appendChild(modalRuntime);
       col2.appendChild(modalRating);
-      col2.appendChild(modalGenre);
       col2.appendChild(modalSummary);
       col1.appendChild(modalDownloadBtn);
       col1.appendChild(modalCancelBtn);
@@ -68,11 +68,14 @@ function modalPopUp(movies) {
     });
   });
 
+  //cancel 버튼 눌렀을 때 모달 삭제
   modalCancelBtn.addEventListener("click", function () {
       modal.style.display = "none";
       col1.removeChild(modalImg);
       col2.removeChild(modalTitle);
       col2.removeChild(modalSummary);
+      col2.removeChild(modalRuntime);
+      col2.revmoveChild(modalRating);
   });
 }
 
