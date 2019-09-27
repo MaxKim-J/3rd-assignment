@@ -30,16 +30,21 @@ function componentMake(movies) {
     const title = document.createElement("div");
     const summary = document.createElement("div");
     const genreDiv = document.createElement("div");
+    const btnDiv = document.createElement("div");
+    const detailBtn = document.createElement("button");
 
     // element 자식으로 넣기
     app.appendChild(movieDiv);
     movieDiv.appendChild(imgDiv);
     movieDiv.appendChild(contentDiv);
-
     imgDiv.appendChild(img);
+    
     contentDiv.appendChild(title);
     contentDiv.appendChild(genreDiv);
     contentDiv.appendChild(summary);
+    contentDiv.appendChild(detailBtn);
+    contentDiv.appendChild(btnDiv);
+    btnDiv.appendChild(detailBtn);
 
     // 포스터, 제목, 요약 가져와서 img, div에 넣기
     img.src = movies[movieIndex].large_cover_image;
@@ -54,6 +59,10 @@ function componentMake(movies) {
       genreDiv.appendChild(movieGenre);
       movieGenre.innerText = genres[genreIndex];
     }
+
+    // button에 텍스트 넣기
+    detailBtn.innerText = "Show Detail"
+    detailBtn.classList.add("modalbtn")
 
     // css클래스 추가
     movieDiv.classList.add("movieDiv");

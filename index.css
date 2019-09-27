@@ -10,7 +10,7 @@ body {
 }
 
 .loading {
-    display: block;
+    display: none;
 }
 
 .movieDiv {
@@ -45,14 +45,14 @@ body {
 }
 
 .contentDiv > div:nth-child(1) {
-    padding: 20px 0px 0px 0px;
+    padding-top: 20px;
     font-size: 20px;
     font-weight: 600;
 }
 
 .contentDiv > div:nth-child(2) {
     color: #bfbfbf;
-    padding: 20px 0px 0px 0px;
+    padding-top: 20px;
     font-size: 14px;
 }
 
@@ -64,11 +64,20 @@ body {
 .contentDiv > div:nth-child(3) {
     color: #bfbfbf;
     display: block;
-    padding: 20px 0px 0px 0px;
+    padding-top: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 14px;
+}
+
+.contentDiv > div:nth-child(4) {
+    padding-top:20px;
+}
+
+.contentDiv > div:nth-child(4) button {
+    padding: 5px 20px;
+    border: none;
 }
 
 @media screen and (min-width: 320px) and (max-width: 667px) {
