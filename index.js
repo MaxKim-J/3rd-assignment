@@ -22,7 +22,8 @@ function getMovieList() {
         "rating",
         "runtime",
         "title_long",
-        "url"
+        "url",
+        "yt_trailer_code"
       ]);
       const movies = JSON.parse(jsonString);
       componentMake(movies);
@@ -41,6 +42,7 @@ function modalPopUp(movies) {
   const modalSummary = document.createElement("div");
   const modalCancelBtn = document.createElement("button");
   const modalDownloadBtn = document.createElement("button");
+  const modalYoutubeBtn = document.createElement("button");
   const modalRuntime = document.createElement("div");
   const modalRating = document.createElement("div");
 
@@ -56,6 +58,7 @@ function modalPopUp(movies) {
       col2.appendChild(modalRating);
       col2.appendChild(modalSummary);
       col1.appendChild(modalDownloadBtn);
+      col1.appendChild(modalYoutubeBtn);
       col2.appendChild(modalCancelBtn);
 
       modalImg.src = movies[indexNum].large_cover_image;
@@ -65,6 +68,7 @@ function modalPopUp(movies) {
       modalRuntime.innerHTML = `<p class="modal__head">runtime</p>\n<hr/>${movies[indexNum].runtime}m`;
       modalCancelBtn.innerHTML = "Back to Movie list"
       modalDownloadBtn.innerHTML = `<a href="${movies[indexNum].url}" target="_blank">Download Link</a>`
+      modalYoutubeBtn.innerHTML = `<a href="https://www.youtube.com/watch?v=${movies[indexNum].yt_trailer_code}" target="_blank">Youtube Trailer Link</a>`
     });
   });
 
