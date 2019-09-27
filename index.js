@@ -1,22 +1,24 @@
 const app = document.querySelector("#app");
 const loading = document.querySelector(".loading");
-
+//todo 모달 이용하여 상세 페이지 만들기(토요일)
 
 function getMovieList() {
-  //todo json을 아예 가져올때 필터링으로 title, genre, summary, image만 갖고오기
-  fetch("https://yts.lt/api/v2/list_movies.json?sort_by=download_count")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      const movies = json.data.movies;
+  axios.get('https://yts.lt/api/v2/list_movies.json?sort_by=download_count')
+    .then(function (response) {
+      let jsonString = JSON.stringify(response.data.data.movies,
+        ["title", "large_cover_image", "summary", "genres"]);
+      const movies = JSON.parse(jsonString);
       componentMake(movies);
-    });
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
 }
 
 function componentMake(arr) {
   console.log(arr);
   for (let i = 0; i < arr.length; i++) {
+
     // element 만들기
     const movieDiv = document.createElement("div");
     const imgDiv = document.createElement("div");
@@ -56,6 +58,7 @@ function componentMake(arr) {
     contentDiv.classList.add("contentDiv");
     imgDiv.classList.add("imgDiv");
 
+    // 로딩 메시지 없애기
     loading.style.display = "none"
   }
 }
