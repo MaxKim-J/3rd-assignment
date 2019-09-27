@@ -6,8 +6,6 @@ const modalContent = document.querySelector(".modal__content");
 const col1 = document.querySelector(".modal__column1");
 const col2 = document.querySelector(".modal__column2");
 
-//todo githubpages 배포
-
 function getMovieList() {
   // axios와 JSON 메소드로 꼭 필요한 데이터만 파싱
   axios
@@ -50,7 +48,8 @@ function modalPopUp(movies) {
   buttons.forEach(function(button) {
     button.addEventListener("click", function(e) {
       modal.style.display = "block";
-      app.style.display = "none";
+      app.style.display = "none"
+      app.classList.add("stop-scrolling")
       const indexNum = e.currentTarget.value;
 
       col1.appendChild(modalImg);
@@ -76,7 +75,7 @@ function modalPopUp(movies) {
   //cancel 버튼 눌렀을 때 모달 삭제
   modalCancelBtn.addEventListener("click", function () {
       modal.style.display = "none";
-      app.style.display = "flex";
+      app.style.display = "fixed";
       col1.removeChild(modalImg);
       col2.removeChild(modalTitle);
       col2.removeChild(modalSummary);
